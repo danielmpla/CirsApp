@@ -1,4 +1,20 @@
-#wrap{
-    font-size: larger;
-    font-weight: bolder;
+body {
+    background-color:#0080FF;
+}
+
+h1 {
+    font-family: Arial, Helvetica, Verdana;
+    font-color: white;
+    color:#ffffff;
+}
+
+#wrap {
+
+
+}
+
+#mainmenuButton {
+    background-color:#FE2E2E;
+    border:0px;
+
 }
