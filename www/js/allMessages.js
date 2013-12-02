@@ -17,6 +17,7 @@ $(document).ready(function() {
         dataType: "json",
         crossDomain: true
     }).success(function (data){
+            alert(data.responseText);
         $.each(data, function(key, value){
             if(key == "publication"){
                 $.each(value, function(publications){
