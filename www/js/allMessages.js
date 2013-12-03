@@ -8,13 +8,13 @@ $(document).ready(function() {
 
     $.ajax({
         headers: {
-            Accept : "application/json; charset=utf-8",
-            'Content-Type': 'application/json; charset=utf-8'
+            Accept : "application/xml; charset=utf-8",
+            'Content-Type': 'application/xml; charset=utf-8'
 
         },
         url : "http://141.46.136.3:8080/RisikousRESTful/rest/publications",
         type : "GET",
-        dataType: "json",
+        dataType: "xml",
         crossDomain: true
     }).success(function (data){
             alert(data.responseText);
