@@ -6,17 +6,7 @@
  */
 $(document).ready(function() {
 
-    $.ajax({
-        headers: {
-            Accept : "application/xml; charset=utf-8",
-            'Content-Type': 'application/xml; charset=utf-8'
-
-        },
-        url : "http://141.46.136.3:8080/RisikousRESTful/rest/publications",
-        type : "GET",
-        dataType: "xml",
-        crossDomain: true
-    }).success(function (data){
+    $.getJSON('http://141.46.136.3:8080/RisikousRESTful/rest/publications', function (data){
             alert(data.responseText);
         $.each(data, function(key, value){
             if(key == "publication"){
@@ -31,7 +21,7 @@ $(document).ready(function() {
                            date = val;
                        }
                     });
-                    $.append("<li>" + title + " " + date +  "</li>", $('#list'));
+                    $.append("<input class='menuButton' type='button' value='" + title + "'" +  "onclick=''><br />", $('#reports'));
                 });
             }
         });
