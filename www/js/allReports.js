@@ -7,10 +7,9 @@
 $(document).ready(function() {
 
     $.getJSON('http://141.46.136.3:8080/RisikousRESTful/rest/publications', function (data){
-            alert(data.responseText);
         $.each(data, function(key, value){
             if(key == "publication"){
-                $.each(value, function(publications){
+                $.each(value, function(publicationKey, publications){
                     var title;
                     var date;
                     $.each(publications, function(id, val) {
@@ -21,7 +20,7 @@ $(document).ready(function() {
                            date = val;
                        }
                     });
-                    $.append("<input class='menuButton' type='button' value='" + title + "'" +  "onclick=''><br />", $('#reports'));
+                    $('#reports').append("<input class='menuButton' type='button' value='" + title + "'" +  "onclick=''><br />", $('#reports'));
                 });
             }
         });
