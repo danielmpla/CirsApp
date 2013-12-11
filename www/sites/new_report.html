@@ -15,7 +15,7 @@
             <h1>Neue Meldung</h1>
 
             <div id="report" style="text-align:center">
-                <form id="meldekreise">
+                <form id="newReport">
                     <select name="Meldekreis">
                         <option selected>Meldekreis</option>
                         <option>01</option>
@@ -23,11 +23,12 @@
                         <option>03</option>
                         <option>04</option>
                     </select><br />
-                    <textarea name="Ereignisbeschreibung" text="Ereignisbeschreibung"></textarea><br />
+                    <textarea name="Ereignisbeschreibung" placeholder="Ereignisbeschreibung" rows="6"></textarea><br />
+
+
+                    <input class="menuButton" type="button" value="Absenden" onclick=""><br />
                 </form>
             </div>
-
-            <input class="menuButton" type="button" value="Absenden" onclick=""><br />
 
             <a href="../index.html">
                 <input id="backButton" class="menuButton" type="button" value="Hauptmenü" onclick=""><br />

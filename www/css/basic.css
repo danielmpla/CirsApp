@@ -9,6 +9,64 @@ h1 {
     color: white;;
 }
 
+select {
+    background-color: #D9D9D9;
+    background-image: none;
+    border: 0px;
+    width: 85%;
+
+    margin: 10px;
+    padding: 5px;
+
+    font-family: Arial, Helvetica, Verdana;
+    font-color: #000000;
+    font-size: 150%;
+    font-weight: bold;
+    color: black;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+textarea {
+    background-color: #D9D9D9;
+    background-image: none;
+    border: 0px;
+    width: 84.3%;
+    resize: none;
+    overflow: auto;
+
+    margin: 10px;
+    padding: 5px;
+
+    font-family: Arial, Helvetica, Verdana;
+    font-color: #000000;
+    font-size: 150%;
+    font-weight: bold;
+    color: black;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+textarea::-webkit-input-placeholder { /* WebKit browsers */
+            color: #000;
+}
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #000;
+}
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #000;
+}
+textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: #000;
+}
+
+
 .menuButton {
     background-color: #D9D9D9;
     border: 0px;
@@ -36,53 +94,8 @@ h1 {
     display: none;
 }
 
-#backButton {
-    background-color: #FE2E2E;
-    color: white;
-}
-
-select {
-    background-color: #D9D9D9;
-    background-image: none;
-    border: 0px;
-    width: 85%;
-
-    margin: 10px;
-    padding: 5px;
-
-    font-family: Arial, Helvetica, Verdana;
-    font-color: #000000;
-    font-size: 150%;
-    font-weight: bold;
-    color: black;
-
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-textarea {
-    background-color: #D9D9D9;
-    background-image: none;
-    border: 0px;
-    width: 84.3%;
-    max-height: 200px;
-    resize: none;
-
-    margin: 10px;
-    padding: 5px;
-
-    font-family: Arial, Helvetica, Verdana;
-    font-color: #000000;
-    font-size: 150%;
-    font-weight: bold;
-    color: black;
-
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+#wrap {
+    text-align: center;
 }
 
 #logo {
@@ -91,6 +104,7 @@ textarea {
     height: 77px;
 }
 
-#wrap {
-    text-align: center;
+#backButton {
+    background-color: #FE2E2E;
+    color: white;
 }
