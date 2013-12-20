@@ -62,6 +62,7 @@ $(document).ready(function () {
                         });
                     });
                     $('#report').append('<div id="' + key + '">' + '<select name="' + data.reportingArea.text + '">' + options + '</select>' + '</div>', $('#report'));
+                    $('#report').append('<input class="menuButton" type="button" value="Absenden" onclick="">', $('#report'))
                 });
             }
         });
