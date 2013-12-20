@@ -31,9 +31,13 @@ $(document).ready(function () {
                 $('#report').append('<div id="' + key + '">' + simpleTextarea(data.consequences.text) + '</div>', $('#report'));
             }
             if (key == "pointOfTime") {
-                $('#report').append('<div id="' + key + '">' + data.pointOfTime.text + '<br />' + datePicker.show(options, function (date) {
-                    dateTime = date;
-                }) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + data.pointOfTime.text + '<br />' + 'dateTime' + '</div>', $('#report'));
+            }
+            if(key == "riskEstimation"){
+                $('#report').append('<div id="' + key + '">' + data.riskEstimation.text + '<br />' + 'riskEstimation' + '</div>', $('#report'));
+            }
+            if (key == "files"){
+                $('#report').append('<div id="' + key + '">' + data.files.text + '<br />' + 'files' + '</div>', $('#report'));
             }
             if (key == "reportingArea") {
                 var options;
