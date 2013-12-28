@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="554cb31b-9034-4370-90c3-680a3af40f5f" name="Default" comment="allMessages for test">
+    <list default="true" id="554cb31b-9034-4370-90c3-680a3af40f5f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/class.css" afterPath="$PROJECT_DIR$/www/css/class.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/id.css" afterPath="$PROJECT_DIR$/www/css/id.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CirsApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388236910037" ignored="false" />
+    <file path="/Dummy.txt" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388237307373" ignored="false" />
     <file path="/index.html" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388236019375" ignored="false" />
     <file path="/id.css" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388236438548" ignored="false" />
-    <file path="/class.css" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388236616664" ignored="false" />
+    <file path="/class.css" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388237486585" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,7 @@
       <file leaf-file-name="class.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/css/class.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="4" selection-start="826" selection-end="826" vertical-scroll-proportion="0.8747913">
+            <state line="43" column="30" selection-start="748" selection-end="748" vertical-scroll-proportion="0.82470787">
               <folding />
             </state>
           </provider>
@@ -585,7 +584,11 @@
       <created>1388236921995</created>
       <updated>1388236921995</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="allMessages for test">
+      <created>1388237321172</created>
+      <updated>1388237321172</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -800,7 +803,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/css/class.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="4" selection-start="826" selection-end="826" vertical-scroll-proportion="0.8747913">
+        <state line="43" column="30" selection-start="748" selection-end="748" vertical-scroll-proportion="0.82470787">
           <folding />
         </state>
       </provider>

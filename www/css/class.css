@@ -41,11 +41,5 @@
 }
 
 #failure-text {
-    font-family: Arial, Helvetica, Verdana;
-    font-size: 150%;
-    font-weight: bold;
-    color: #FE2E2E;
-
-    text-decoration: none;
-    text-align: center;
+    color: #FE2E2E !important;
 }
