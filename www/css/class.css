@@ -1,0 +1,31 @@
+.menuButton {
+    background-color: #D9D9D9;
+    border: 0px;
+    width: 85%;
+
+    margin: 10px;
+    padding: 5px;
+
+    font-family: Arial, Helvetica, Verdana;
+    font-color: #000000;
+    font-size: 150%;
+    font-weight: bold;
+    color: black;
+
+    text-decoration: none;
+    text-align: center;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.failure {
+    border: 1px;
+    border-color: #FE2E2E;
+}
