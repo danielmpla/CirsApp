@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="554cb31b-9034-4370-90c3-680a3af40f5f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/logo.png" afterPath="$PROJECT_DIR$/www/img/logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CirsApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1389186843529" ignored="false" />
+    <file path="/Dummy.txt" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1389186911622" ignored="false" />
     <file path="/index.html" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388236019375" ignored="false" />
     <file path="/id.css" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1388236438548" ignored="false" />
     <file path="/class.css" changelist="554cb31b-9034-4370-90c3-680a3af40f5f" time="1389182865224" ignored="false" />
@@ -618,7 +617,11 @@
       <created>1389186852637</created>
       <updated>1389186852637</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="allMessages for test">
+      <created>1389186918922</created>
+      <updated>1389186918922</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
