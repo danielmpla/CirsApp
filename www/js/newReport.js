@@ -6,12 +6,12 @@ var jsonObject;
 
 function send () {
     if(validate()){
-        jsonObject.consequences.consequences = $("#consequences>textarea").text();
-        jsonObject.contactInformation.contactInformation = $("#contactInformation>textarea").text();
+        jsonObject.consequences.consequences = $("#consequences>textarea").val();
+        jsonObject.contactInformation.contactInformation = $("#contactInformation>textarea").val();
         //Add Files
-        jsonObject.immediateMeasure.immediateMeasure = $("#immediateMeasure>textarea").text();
-        jsonObject.incidentDescription.incidentDescription = $("#incidentDescription>textarea").text();
-        jsonObject.location.location = $("#location>textarea").text();
+        jsonObject.immediateMeasure.immediateMeasure = $("#immediateMeasure>textarea").val();
+        jsonObject.incidentDescription.incidentDescription = $("#incidentDescription>textarea").val();
+        jsonObject.location.location = $("#location>textarea").val();
         jsonObject.opinionOfReporter.organisationalFactors.organisationalFactors = $("#opinionOfReporter:nth-child(1)");
         jsonObject.opinionOfReporter.personalFactors.personalFactors = $("#opinionOfReporter:nth-child(2)");
         jsonObject.opinionOfReporter.additionalNotes.additionalNotes = $("#opinionOfReporter:nth-child(3)");
@@ -20,7 +20,7 @@ function send () {
         jsonObject.riskEstimation.detectionRating.detectionRating = $("input:radio[name ='detectionRating']:checked").val();
         jsonObject.riskEstimation.occurrenceRating.occurrenceRating = $("input:radio[name ='occurrenceRating']:checked").val();
         jsonObject.riskEstimation.significance.significance = $("input:radio[name ='significance']:checked").val();
-        $.post('', jsonObject, function (data, textStatus, jqXHR){
+        $.post('http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', jsonObject, function (data, textStatus, jqXHR){
             $('#report').html(data);
 
         });
@@ -28,113 +28,113 @@ function send () {
 }
 
 function resetValidationErrors () {
-    $("#consequences>textarea").removeClass("error");
-    $("#contactInformation>textarea").removeClass("error");
+    $("#consequences>textarea").removeClass("failure");
+    $("#contactInformation>textarea").removeClass("failure");
     //Remove Validation-Error for Files
-    $("#immediateMeasure>textarea").removeClass("error");
-    $("#incidentDescription>textarea").removeClass("error");
-    $("#location>textarea").removeClass("error");
-    $("#opinionOfReporter:nth-child(1)").removeClass("error");
-    $("#opinionOfReporter:nth-child(2)").removeClass("error");
-    $("#opinionOfReporter:nth-child(3)").removeClass("error");
+    $("#immediateMeasure>textarea").removeClass("failure");
+    $("#incidentDescription>textarea").removeClass("failure");
+    $("#location>textarea").removeClass("failure");
+    $("#opinionOfReporter:nth-child(1)").removeClass("failure");
+    $("#opinionOfReporter:nth-child(2)").removeClass("failure");
+    $("#opinionOfReporter:nth-child(3)").removeClass("failure");
 }
 
 function validate() {
     var validationError = false;
 
-    if($("#consequences>textarea").text().length >= jsonObject.consequences.maximumOfCharacters){
+    if($("#consequences>textarea").val().length >= jsonObject.consequences.maximumOfCharacters){
         validationError = true;
-        $("#consequences>textarea").addClass("error");
+        $("#consequences>textarea").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.consequences.required){
-        if($("#consequences>textarea").text().length <= 0){
+        if($("#consequences>textarea").val().length <= 0){
             validationError = true;
-            $("#consequences>textarea").addClass("error");
+            $("#consequences>textarea").addClass("failure");
             //Add Error-Message
         }
     }
-    if($("#contactInformation>textarea").text().length >= jsonObject.contactInformation.maximumOfCharacters){
+    if($("#contactInformation>textarea").val().length >= jsonObject.contactInformation.maximumOfCharacters){
         validationError = true;
-        $("#contactInformation>textarea").addClass("error");
+        $("#contactInformation>textarea").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.contactInformation.required){
-        if($("#contactInformation>textarea").text().length <= 0){
+        if($("#contactInformation>textarea").val().length <= 0){
             validationError = true;
-            $("#contactInformation>textarea").addClass("error");
+            $("#contactInformation>textarea").addClass("failure");
             //Add Error-Message
         }
     }
     //Add Validation-Error for Files
-    if($("#immediateMeasure>textarea").text().length >= jsonObject.immediateMeasure.maximumOfCharacters){
+    if($("#immediateMeasure>textarea").val().length >= jsonObject.immediateMeasure.maximumOfCharacters){
         validationError = true;
-        $("#immediateMeasure>textarea").addClass("error");
+        $("#immediateMeasure>textarea").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.immediateMeasure.required){
-        if($("#immediateMeasure>textarea").text().length <= 0){
+        if($("#immediateMeasure>textarea").val().length <= 0){
             validationError = true;
-            $("#immediateMeasure>textarea").addClass("error");
+            $("#immediateMeasure>textarea").addClass("failure");
             //Add Error-Message
         }
     }
-    if($("#incidentDescription>textarea").text().length >= jsonObject.incidentDescription.maximumOfCharacters){
+    if($("#incidentDescription>textarea").val().length >= jsonObject.incidentDescription.maximumOfCharacters){
         validationError = true;
-        $("#incidentDescription>textarea").addClass("error");
+        $("#incidentDescription>textarea").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.incidentDescription.required){
-        if($("#incidentDescription>textarea").text().length <= 0){
+        if($("#incidentDescription>textarea").val().length <= 0){
             validationError = true;
-            $("#incidentDescription>textarea").addClass("error");
+            $("#incidentDescription>textarea").addClass("failure");
             //Add Error-Message
         }
     }
-    if($("#location>textarea").text().length >= jsonObject.location.maximumOfCharacters){
+    if($("#location>textarea").val().length >= jsonObject.location.maximumOfCharacters){
         validationError = true;
-        $("#location>textarea").addClass("error");
+        $("#location>textarea").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.location.required){
-        if($("#location>textarea").text().length <= 0){
+        if($("#location>textarea").val().length <= 0){
             validationError = true;
-            $("#location>textarea").addClass("error");
+            $("#location>textarea").addClass("failure");
             //Add Error-Message
         }
     }
-    if($("#opinionOfReporter:nth-child(1)").text().length >= jsonObject.opinionOfReporter.organisationalFactors.maximumOfCharacters){
+    if($("#opinionOfReporter:nth-child(1)").val().length >= jsonObject.opinionOfReporter.organisationalFactors.maximumOfCharacters){
         validationError = true;
-        $("#opinionOfReporter:nth-child(1)").addClass("error");
+        $("#opinionOfReporter:nth-child(1)").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.opinionOfReporter.organisationalFactors.required){
-        if($("#opinionOfReporter:nth-child(1)").text().length <= 0){
+        if($("#opinionOfReporter:nth-child(1)").val().length <= 0){
             validationError = true;
-            $("#opinionOfReporter:nth-child(1)").addClass("error");
+            $("#opinionOfReporter:nth-child(1)").addClass("failure");
             //Add Error-Message
         }
     }
-    if($("#opinionOfReporter:nth-child(2)").text().length >= jsonObject.opinionOfReporter.personalFactors.maximumOfCharacters){
+    if($("#opinionOfReporter:nth-child(2)").val().length >= jsonObject.opinionOfReporter.personalFactors.maximumOfCharacters){
         validationError = true;
-        $("#opinionOfReporter:nth-child(2)").addClass("error");
+        $("#opinionOfReporter:nth-child(2)").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.opinionOfReporter.personalFactors.required){
-        if($("#opinionOfReporter:nth-child(2)").text().length <= 0){
+        if($("#opinionOfReporter:nth-child(2)").val().length <= 0){
             validationError = true;
-            $("#opinionOfReporter:nth-child(2)").addClass("error");
+            $("#opinionOfReporter:nth-child(2)").addClass("failure");
             //Add Error-Message
         }
-    }if($("#opinionOfReporter:nth-child(3)").text().length >= jsonObject.opinionOfReporter.additionalNotes.maximumOfCharacters){
+    }if($("#opinionOfReporter:nth-child(3)").val().length >= jsonObject.opinionOfReporter.additionalNotes.maximumOfCharacters){
         validationError = true;
-        $("#opinionOfReporter:nth-child(3)").addClass("error");
+        $("#opinionOfReporter:nth-child(3)").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.opinionOfReporter.additionalNotes.required){
-        if($("#opinionOfReporter:nth-child(3)").text().length <= 0){
+        if($("#opinionOfReporter:nth-child(3)").val().length <= 0){
             validationError = true;
-            $("#opinionOfReporter:nth-child(3)").addClass("error");
+            $("#opinionOfReporter:nth-child(3)").addClass("failure");
             //Add Error-Message
         }
     }
@@ -145,9 +145,9 @@ function validate() {
 $(document).ready(function () {
     function simpleTextarea (text, required){
         if(required){
-            return '<textarea name="' + text +'" rows="6" placeholder="' + text + '" required></textarea>';
+            return '<textarea name="' + text +'" rows="6" required></textarea>';
         }else{
-            return '<textarea name="' + text +'" rows="6" placeholder="' + text + '"></textarea>';
+            return '<textarea name="' + text +'" rows="6"></textarea>';
         }
     }
 
@@ -159,31 +159,31 @@ $(document).ready(function () {
         var dateTime;
         $.each(data, function (key, value) {
             if (key == "contactInformation") {
-                $('#report').append('<div id="' + key + '">' + simpleTextarea(data.contactInformation.text, data.contactInformation.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.contactInformation.text + '</span><br>' + simpleTextarea(data.contactInformation.text, data.contactInformation.required) + '</div>', $('#report'));
             }
             if (key == "immediateMeasure"){
-                $('#report').append('<div id="' + key + '">' + simpleTextarea(data.immediateMeasure.text, data.immediateMeasure.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.immediateMeasure.text + '</span><br>' + simpleTextarea(data.immediateMeasure.text, data.immediateMeasure.required) + '</div>', $('#report'));
             }
             if (key == "opinionOfReporter"){
-                $('#report').append('<div id="' + key + '">' + data.opinionOfReporter.text + '<br />' + simpleTextarea(data.opinionOfReporter.organisationalFactors.text, data.opinionOfReporter.organisationalFactors.required) + '<br />' + simpleTextarea(data.opinionOfReporter.personalFactors.text, data.opinionOfReporter.personalFactors.required) + '<br />' + simpleTextarea(data.opinionOfReporter.additionalNotes.text, data.opinionOfReporter.additionalNotes.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text headline">' + data.opinionOfReporter.text + '</span>' + '<br><span class="text">' + data.opinionOfReporter.organisationalFactors.text + '</span>' + '<br />' + simpleTextarea(data.opinionOfReporter.organisationalFactors.text, data.opinionOfReporter.organisationalFactors.required) + '<br><span class="text">' + data.opinionOfReporter.personalFactors.text + '</span>' + '<br />' + simpleTextarea(data.opinionOfReporter.personalFactors.text, data.opinionOfReporter.personalFactors.required) + '<br><span class="text">' + data.opinionOfReporter.additionalNotes.text + '</span><br />' + simpleTextarea(data.opinionOfReporter.additionalNotes.text, data.opinionOfReporter.additionalNotes.required) + '</div>', $('#report'));
             }
             if (key == "incidentDescription"){
-                $('#report').append('<div id="' + key + '">' + simpleTextarea(data.incidentDescription.text, data.incidentDescription.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.incidentDescription.text + '</span><br>' + simpleTextarea(data.incidentDescription.text, data.incidentDescription.required) + '</div>', $('#report'));
             }
             if (key == "location"){
-                $('#report').append('<div id="' + key + '">' + simpleTextarea(data.location.text, data.location.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.location.text + '</span><br>' + simpleTextarea(data.location.text, data.location.required) + '</div>', $('#report'));
             }
             if (key == "consequences") {
-                $('#report').append('<div id="' + key + '">' + simpleTextarea(data.consequences.text, data.consequences.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.consequences.text + '</span><br>' +  simpleTextarea(data.consequences.text, data.consequences.required) + '</div>', $('#report'));
             }
             if (key == "pointOfTime") {
-                $('#report').append('<div id="' + key + '">' + data.pointOfTime.text + '<br />' + '<input type="datetime-local" data-clear-btn="false" value="">' + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.pointOfTime.text + '</span><br />' + '<input type="datetime-local" data-clear-btn="false" value="">' + '</div>', $('#report'));
             }
             if(key == "riskEstimation"){
-               $('#report').append('<div id="' + key + '">' + data.riskEstimation.text + '<br />' + data.riskEstimation.detectionRating.text + '<br />' + '<input type="radio" name="detectionRating" value="1"><input type="radio" name="detectionRating" value="2" checked><input type="radio" name="detectionRating" value="3">' + '<br />' + data.riskEstimation.occurrenceRating.text + '<br />' + '<input type="radio" name="occurrenceRating" value="1"><input type="radio" name="occurrenceRating" value="2" checked><input type="radio" name="occurrenceRating" value="3">' + '<br />' + data.riskEstimation.significance.text + '<br />' + '<input type="radio" name="significance" value="1"><input type="radio" name="significance" value="2" checked><input type="radio" name="significance" value="3">' + '</div>', $('#report'));
+               $('#report').append('<div id="' + key + '">' + '<span class="text headline">' + data.riskEstimation.text + '</span><br /><span class="text">' + data.riskEstimation.detectionRating.text + '</span><br />' + '<input type="radio" name="detectionRating" value="1"><input type="radio" name="detectionRating" value="2" checked><input type="radio" name="detectionRating" value="3">' + '<br /><span class="text">' + data.riskEstimation.occurrenceRating.text + '</span><br />' + '<input type="radio" name="occurrenceRating" value="1"><input type="radio" name="occurrenceRating" value="2" checked><input type="radio" name="occurrenceRating" value="3">' + '<br /><span class="text">' + data.riskEstimation.significance.text + '</span><br />' + '<input type="radio" name="significance" value="1"><input type="radio" name="significance" value="2" checked><input type="radio" name="significance" value="3">' + '</div>', $('#report'));
             }
             if (key == "files"){
-                $('#report').append('<div id="' + key + '">' + data.files.text + '<br />' + 'files' + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.files.text + '</span><br />' + 'files' + '</div>', $('#report'));
             }
             if (key == "reportingArea") {
                 var options;
@@ -207,7 +207,7 @@ $(document).ready(function () {
                             }
                         });
                     });
-                    $('#report').append('<div id="' + key + '">' + '<select name="' + data.reportingArea.text + '">' + options + '</select>' + '</div>', $('#report'));
+                    $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.reportingArea.text + '<br></span><select name="' + data.reportingArea.text + '">' + options + '</select>' + '</div>', $('#report'));
                     $('#report').append('<input class="menuButton" type="submit" value="Absenden" onclick="send()">', $('#report'))
                 });
             }
