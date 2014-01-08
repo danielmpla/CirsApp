@@ -40,6 +40,10 @@
     text-align: center;
 }
 
-#failure-text {
+.headline {
+    color: white !important;
+}
+
+.failure-text {
     color: #FE2E2E !important;
 }
