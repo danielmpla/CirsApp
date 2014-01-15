@@ -12,6 +12,7 @@ $(document).ready(function() {
                 $.each(value, function(publicationKey, publications){
                     var title;
                     var date;
+                    var idOfReport;
                     $.each(publications, function(id, val) {
                        if(id == "title"){
                            title = val;
@@ -19,8 +20,11 @@ $(document).ready(function() {
                        if(id == "entryDate"){
                            date = val;
                        }
+                       if(id == "id"){
+                           idOfReport = val;
+                       }
                     });
-                    $('#reports').append("<input class='menuButton' type='button' value='" + title + "'" +  "onclick=''><br />", $('#reports'));
+                    $('#reports').append('<a href="../sites/report.html?id=' + idOfReport + '"><input class="menuButton" type="button" value="' + title + '"></a><br />', $('#reports'));
                 });
             }
         });

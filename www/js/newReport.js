@@ -12,15 +12,15 @@ function send () {
         jsonObject.immediateMeasure.immediateMeasure = $("#immediateMeasure>textarea").val();
         jsonObject.incidentDescription.incidentDescription = $("#incidentDescription>textarea").val();
         jsonObject.location.location = $("#location>textarea").val();
-        jsonObject.opinionOfReporter.organisationalFactors.organisationalFactors = $("#opinionOfReporter:nth-child(1)");
-        jsonObject.opinionOfReporter.personalFactors.personalFactors = $("#opinionOfReporter:nth-child(2)");
-        jsonObject.opinionOfReporter.additionalNotes.additionalNotes = $("#opinionOfReporter:nth-child(3)");
+        jsonObject.opinionOfReporter.organisationalFactors.organisationalFactors = $("#organisationalFactors").val();
+        jsonObject.opinionOfReporter.personalFactors.personalFactors = $("#personalFactors").val();
+        jsonObject.opinionOfReporter.additionalNotes.additionalNotes = $("#additionalNotes").val();
         //pointOfTime
-        jsonObject.reportingArea.reportingArea = $("select." + data.reportingArea.text).val();
+        jsonObject.reportingArea.reportingArea = $("select." + jsonObject.reportingArea.text).val();
         jsonObject.riskEstimation.detectionRating.detectionRating = $("input:radio[name ='detectionRating']:checked").val();
         jsonObject.riskEstimation.occurrenceRating.occurrenceRating = $("input:radio[name ='occurrenceRating']:checked").val();
         jsonObject.riskEstimation.significance.significance = $("input:radio[name ='significance']:checked").val();
-        $.post('http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', jsonObject, function (data, textStatus, jqXHR){
+        $.postJSON('http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', jsonObject, function (data, textStatus, jqXHR){
             $('#report').html(data);
 
         });
@@ -103,38 +103,38 @@ function validate() {
             //Add Error-Message
         }
     }
-    if($("#opinionOfReporter:nth-child(1)").val().length >= jsonObject.opinionOfReporter.organisationalFactors.maximumOfCharacters){
+    if($("#organisationalFactors").val().length >= jsonObject.opinionOfReporter.organisationalFactors.maximumOfCharacters){
         validationError = true;
-        $("#opinionOfReporter:nth-child(1)").addClass("failure");
+        $("#organisationalFactors").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.opinionOfReporter.organisationalFactors.required){
-        if($("#opinionOfReporter:nth-child(1)").val().length <= 0){
+        if($("#organisationalFactors").val().length <= 0){
             validationError = true;
-            $("#opinionOfReporter:nth-child(1)").addClass("failure");
+            $("#organisationalFactors").addClass("failure");
             //Add Error-Message
         }
     }
-    if($("#opinionOfReporter:nth-child(2)").val().length >= jsonObject.opinionOfReporter.personalFactors.maximumOfCharacters){
+    if($("#personalFactors").val().length >= jsonObject.opinionOfReporter.personalFactors.maximumOfCharacters){
         validationError = true;
-        $("#opinionOfReporter:nth-child(2)").addClass("failure");
+        $("#personalFactors").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.opinionOfReporter.personalFactors.required){
-        if($("#opinionOfReporter:nth-child(2)").val().length <= 0){
+        if($("#personalFactors").val().length <= 0){
             validationError = true;
-            $("#opinionOfReporter:nth-child(2)").addClass("failure");
+            $("#personalFactors").addClass("failure");
             //Add Error-Message
         }
-    }if($("#opinionOfReporter:nth-child(3)").val().length >= jsonObject.opinionOfReporter.additionalNotes.maximumOfCharacters){
+    }if($("#additionalNotes").val().length >= jsonObject.opinionOfReporter.additionalNotes.maximumOfCharacters){
         validationError = true;
-        $("#opinionOfReporter:nth-child(3)").addClass("failure");
+        $("#additionalNotes").addClass("failure");
         //Add Error-Message
     }
     if(jsonObject.opinionOfReporter.additionalNotes.required){
-        if($("#opinionOfReporter:nth-child(3)").val().length <= 0){
+        if($("#additionalNotes").val().length <= 0){
             validationError = true;
-            $("#opinionOfReporter:nth-child(3)").addClass("failure");
+            $("#additionalNotes").addClass("failure");
             //Add Error-Message
         }
     }
@@ -148,6 +148,14 @@ $(document).ready(function () {
             return '<textarea name="' + text +'" rows="6" required></textarea>';
         }else{
             return '<textarea name="' + text +'" rows="6"></textarea>';
+        }
+    }
+
+function simpleTextarea (id, text, required){
+        if(required){
+            return '<textarea id="' + id + '" name="' + text +'" rows="6" required></textarea>';
+        }else{
+            return '<textarea id="' + id + '" name="' + text +'" rows="6"></textarea>';
         }
     }
 
@@ -165,7 +173,7 @@ $(document).ready(function () {
                 $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.immediateMeasure.text + '</span><br>' + simpleTextarea(data.immediateMeasure.text, data.immediateMeasure.required) + '</div>', $('#report'));
             }
             if (key == "opinionOfReporter"){
-                $('#report').append('<div id="' + key + '">' + '<span class="text headline">' + data.opinionOfReporter.text + '</span>' + '<br><span class="text">' + data.opinionOfReporter.organisationalFactors.text + '</span>' + '<br />' + simpleTextarea(data.opinionOfReporter.organisationalFactors.text, data.opinionOfReporter.organisationalFactors.required) + '<br><span class="text">' + data.opinionOfReporter.personalFactors.text + '</span>' + '<br />' + simpleTextarea(data.opinionOfReporter.personalFactors.text, data.opinionOfReporter.personalFactors.required) + '<br><span class="text">' + data.opinionOfReporter.additionalNotes.text + '</span><br />' + simpleTextarea(data.opinionOfReporter.additionalNotes.text, data.opinionOfReporter.additionalNotes.required) + '</div>', $('#report'));
+                $('#report').append('<div id="' + key + '">' + '<span class="text headline">' + data.opinionOfReporter.text + '</span>' + '<br><span class="text">' + data.opinionOfReporter.organisationalFactors.text + '</span>' + '<br />' + simpleTextarea("organisationalFactors", data.opinionOfReporter.organisationalFactors.text, data.opinionOfReporter.organisationalFactors.required) + '<br><span class="text">' + data.opinionOfReporter.personalFactors.text + '</span>' + '<br />' + simpleTextarea("personalFactors", data.opinionOfReporter.personalFactors.text, data.opinionOfReporter.personalFactors.required) + '<br><span class="text">' + data.opinionOfReporter.additionalNotes.text + '</span><br />' + simpleTextarea("additionalNotes", data.opinionOfReporter.additionalNotes.text, data.opinionOfReporter.additionalNotes.required) + '</div>', $('#report'));
             }
             if (key == "incidentDescription"){
                 $('#report').append('<div id="' + key + '">' + '<span class="text">' + data.incidentDescription.text + '</span><br>' + simpleTextarea(data.incidentDescription.text, data.incidentDescription.required) + '</div>', $('#report'));
