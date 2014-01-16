@@ -20,7 +20,8 @@ function send () {
         jsonObject.riskEstimation.detectionRating.detectionRating = $("input:radio[name ='detectionRating']:checked").val();
         jsonObject.riskEstimation.occurrenceRating.occurrenceRating = $("input:radio[name ='occurrenceRating']:checked").val();
         jsonObject.riskEstimation.significance.significance = $("input:radio[name ='significance']:checked").val();
-        $.postJSON('http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', jsonObject, function (data, textStatus, jqXHR){
+
+        $.post('http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', jsonObject, function (data, textStatus, jqXHR){
             $('#report').html(data);
 
         });
