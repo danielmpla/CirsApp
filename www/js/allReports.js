@@ -6,7 +6,12 @@
  */
 $(document).ready(function() {
 
-    $.getJSON('http://141.46.136.3:8080/RisikousRESTful/rest/publications', function (data){
+    $.get('http://141.46.136.3:8080/RisikousRESTful/rest/publications', function (data){
+        var x2js = new X2JS();
+        var str = new XMLSerializer();
+        var xml = str.serializeToString(data);
+        data = x2js.xml_str2json(xml);
+        data = data.publications;
         $.each(data, function(key, value){
             if(key == "publication"){
                 $.each(value, function(publicationKey, publications){
