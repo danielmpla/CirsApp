@@ -21,9 +21,17 @@ function send () {
         jsonObject.riskEstimation.occurrenceRating.occurrenceRating = $("input:radio[name ='occurrenceRating']:checked").val();
         jsonObject.riskEstimation.significance.significance = $("input:radio[name ='significance']:checked").val();
 
-        $.post('http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', jsonObject, function (data, textStatus, jqXHR){
-            $('#report').html(data);
-
+        alert(jsonObject);
+        
+        $.ajax({
+        	type: 'POST',
+        	url: 'http://141.46.136.3:8080/RisikousRESTful/rest/questionnaire/addQuestionnaire', 
+        	data: jsonObject, 
+        	success: function (data, textStatus, jqXHR){
+        				$('#report').html(data);
+        			 },
+        	contentType: 'application/json',
+        	dataType: 'json'
         });
     }
 }
